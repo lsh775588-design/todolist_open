@@ -1,6 +1,11 @@
 import streamlit as st
 import csv
 
+
+#==========================
+#출처 https://github.com/deepankarvarma/To-Do-List-Using-Python
+#기본적인 csv파일을 이용하는 부분 참고
+#==========================
 # Define the path to the CSV file
 CSV_FILE = "tasks.csv"
 
@@ -25,7 +30,7 @@ def main():
 
     # Load the tasks from the CSV file
     task_list = load_tasks()
-
+#===========================
     # Add a form to input new tasks
     with st.form(key="todo_form",clear_on_submit=True):
         task_input = st.text_input("Enter a new task:")
@@ -50,6 +55,8 @@ def main():
         save_tasks(task_list)
         st.success("모두 삭제되었습니다")  
         st.rerun()
+#버튼을 눌러 정상적으로 작동했을때 출력하는 기능구현
+#============================
 def load_tasks():
     """
     Load the tasks from the CSV file.
@@ -79,7 +86,8 @@ def display(task_list):
                     st.rerun()
 
     return task_list
-
+#리스트의 항목을 삭제하는 기능구현
+#===========================
 def save_tasks(task_list):
     """
     Save the tasks to the CSV file.
